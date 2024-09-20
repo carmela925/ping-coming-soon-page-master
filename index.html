@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>Frontend Mentor | Ping coming soon page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-align: center;
+      font-family: "Libre Franklin", sans-serif;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 20px;
+      color: hsl(209, 33%, 12%);
+    }
+    main{
+      margin: 10px 0;
+    }
+    .logo{margin: 30px;}
+    h1{font-size: 48px;}
+    h1 span{
+      font-weight: 300;
+      color: hsl(0, 0%, 59%);
+      font-size: 48px;
+    }
+    main p{margin: 20px 0;}
+    main p:nth-of-type(2){
+      color: hsl(0, 0%, 59%);
+      font-size: 14px;
+    }
+    form{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30rem;
+      margin: auto;
+      gap: 20px;
+    }
+
+    input,button{
+      padding: 15px 30px;
+      border-radius: 50px;
+      margin: 20px 0;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+    input{
+      width: 55%;
+      text-align: left;
+      border: 1px solid hsl(223, 100%, 88%);
+    }
+    input::placeholder{
+      color: hsl(0, 0%, 59%);
+      font-weight: 300;
+    }
+    input:focus{
+      outline: none;
+      border: 1px solid hsl(223, 87%, 63%);
+    }
+    button{
+      width: 25%;
+      border: none;
+      background-color: hsl(223, 87%, 63%);
+      color: white;
+      box-shadow: 0px 5px 10px hsl(223, 100%, 88%);
+    }
+    button:hover{
+      background-color: hsl(223, 100%, 88%);
+      cursor: pointer;
+    }
+    .dashboard{
+      width: 35rem;
+      margin: 60px 0;
+    }
+    .socials a{
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      padding: 15px;
+      margin-left: 10px;
+      background-color: white;
+      border-radius: 50%;
+      border: 1px solid hsla(0, 0%, 59%, 0.578);
+    }
+    .socials i{
+      color: hsl(223, 87%, 63%);
+
+    }
+    .socials i::before{
+      display: block;
+      width: 10px;
+      position: absolute;
+      top: 50%;
+      left: 30%;
+      transform: translate(-30%, -50%);
+    }
+    .socials a:hover{
+      background-color: hsl(223, 87%, 63%);
+    }
+    .socials a:hover i::before{
+      color: white;
+    }
+    #error{
+      width: 40%;
+      margin: auto;
+      color: hsl(354, 100%, 66%);
+      font-style: oblique;
+      font-size: 14px;
+      text-align: left;
+      display: none;
+    }
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); font-size: 11px;}
+
+    .custom-alert {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 5px 10px hsla(223, 100%, 88%, 0.288);
+
+      p{
+        font-weight: 600;
+      }
+      button{
+        padding: 5px;
+        border-radius: 10px;
+        color: white;
+        background-color: hsl(223, 87%, 63%);
+      }
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .show {
+      display: block;
+    }
+
+    @media only screen and (max-width: 1000px) {
+      main {
+        margin: 5px 0;
+    }
+    .logo {
+        margin: 20px;
+    }
+    h1 {
+        font-size: 32px;
+    }
+    h1 span {
+        font-size: 32px;
+    }
+    form {
+        width: 90%;
+        gap: 10px;
+    }
+    input, button {
+        font-size: 16px;
+    }
+
+    .dashboard {
+        width: 75%;
+        margin: 40px 0;
+    }
+    .socials a {
+        width: 30px;
+        height: 30px;
+    }
+    #error {
+        width: 80%;
+        font-size: 12px;
+    }
+    .custom-alert {
+        padding: 15px;
+    }
+    }
+    @media only screen and (max-width: 592px) {
+      main {
+          margin: 5px 0;
+      }
+      .logo {
+          margin: 20px;
+      }
+      h1 {
+          font-size: 32px;
+      }
+      h1 span {
+          font-size: 32px;
+      }
+      form {
+          width: 70%;
+          flex-direction: column;
+          gap: 10px;
+      }
+      input, button {
+          width: 100%;
+          font-size: 16px;
+      }
+      .dashboard {
+          width: 80%;
+          margin: 40px 0;
+      }
+      .socials a {
+          width: 30px;
+          height: 30px;
+      }
+      #error {
+          width: 70%;
+          font-size: 12px;
+      }
+      .custom-alert {
+          padding: 15px;
+      }
+  }
+  
+  </style>
+</head>
+<body>
+  <main>
+    <img src="./images/logo.svg" alt="Ping logo" class="logo">
+    <h1><span>We are launching</span> soon!</h1>
+    <p>Subscribe and get notified</p>
+    <form id="form" action="" method="">
+      <input id="inpt" type="text" name="email" placeholder="Your email address...">
+      <button type="submit">Notify Me</button>
+    </form>
+    <div id="error">Please provide a valid email address</div>
+    <img src="/images/illustration-dashboard.png" alt="dashboard" class="dashboard">
+    <div class="socials">
+      <a href="#" title="facebok"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" title="twitter"><i class="fa-brands fa-twitter"></i></a>
+      <a href="#" title="instagram"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+    <p>&copy; Copyright Ping. All rights reserved.</p>
+  </main>
+
+  <div id="overlay" class="overlay"></div>
+  <div id="alertBox" class="custom-alert">
+    <p>Successfully saved!</p>
+    <button onclick="closeAlert()">OK</button>
+  </div>
+
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" rel="noopener" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Ntankeu Agnes Carmela</a>.
+    </p>
+  </footer>
+  <script>
+    var form = document.getElementById("form");
+    form.addEventListener("submit", ()=>{
+      event.preventDefault();
+      const input = document.getElementById("inpt");
+      const message = document.getElementById("error");
+      const format = /^[^@\s]+@[^@\s]+\.[^@\s\.]+$/;
+      if(format.test(input.value)){
+        input.style.border = "1px solid hsl(223, 100%, 88%)";
+        message.style.display = "none";
+        showAlert();
+      } else {
+        input.style.border = "1px solid hsl(354, 100%, 66%)";
+        message.style.display = "block";
+      }
+    });
+
+    function showAlert() {
+      document.getElementById('alertBox').classList.add('show');
+      document.getElementById('overlay').classList.add('show');
+    }
+  
+    function closeAlert() {
+      document.getElementById('alertBox').classList.remove('show');
+      document.getElementById('overlay').classList.remove('show');
+    }
+  </script>
+</body>
+</html>
