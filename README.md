@@ -36,7 +36,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: (https://github.com/carmela925/ping-coming-soon-page-master)
-- Live Site URL: (https://gentle-piroshki-f96e0d.netlify.app/)
+- Live Site URL: (https://main--ping-coming-soon-carmela925.netlify.app/)
 
 ## My process
 
