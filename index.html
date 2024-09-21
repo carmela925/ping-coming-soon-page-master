@@ -26,11 +26,11 @@
       margin: 10px 0;
     }
     .logo{margin: 30px;}
-    h1{font-size: 48px;}
+    h1{font-size: 2.4rem;}
     h1 span{
       font-weight: 300;
       color: hsl(0, 0%, 59%);
-      font-size: 48px;
+      font-size: 2.4rem;
     }
     main p{margin: 20px 0;}
     main p:nth-of-type(2){
@@ -39,9 +39,8 @@
     }
     form{
       display: flex;
-      justify-content: center;
       align-items: center;
-      width: 30rem;
+      width: 35rem;
       margin: auto;
       gap: 20px;
     }
@@ -54,7 +53,7 @@
       font-size: 18px;
     }
     input{
-      width: 55%;
+      width: 75%;
       text-align: left;
       border: 1px solid hsl(223, 100%, 88%);
     }
@@ -158,7 +157,7 @@
       display: block;
     }
 
-    @media only screen and (max-width: 1000px) {
+    @media only screen and (max-width: 1200px) {
       main {
         margin: 5px 0;
     }
@@ -166,13 +165,13 @@
         margin: 20px;
     }
     h1 {
-        font-size: 32px;
+        font-size: 1.6rem;
     }
     h1 span {
-        font-size: 32px;
+        font-size: 1.6rem;
     }
     form {
-        width: 90%;
+        width: 78%;
         gap: 10px;
     }
     input, button {
@@ -274,6 +273,11 @@
       const input = document.getElementById("inpt");
       const message = document.getElementById("error");
       const format = /^[^@\s]+@[^@\s]+\.[^@\s\.]+$/;
+      if(input.value==""){
+        input.style.border = "1px solid hsl(354, 100%, 66%)";
+        message.textContent = "Whoops! It looks like you forgot to add your email"
+        message.style.display = "block";
+      }else
       if(format.test(input.value)){
         input.style.border = "1px solid hsl(223, 100%, 88%)";
         message.style.display = "none";
